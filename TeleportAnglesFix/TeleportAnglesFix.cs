@@ -100,7 +100,8 @@ namespace TeleportAnglesFix
                 return HookResult.Continue;
 
             var teleport = caller.As<CTriggerTeleport>();
-            if (teleport.UseLandmarkAngles || teleport.Landmark == "")
+            
+            if (string.IsNullOrEmpty(teleport.Landmark))
                 return HookResult.Continue;
 
             Vector3 eyeVec = pawn.EyeAngles.ToVector3();
@@ -123,7 +124,8 @@ namespace TeleportAnglesFix
                 return HookResult.Continue;
 
             var teleport = caller.As<CTriggerTeleport>();
-            if (teleport.UseLandmarkAngles || teleport.Landmark == "")
+            
+            if (string.IsNullOrEmpty(teleport.Landmark))
                 return HookResult.Continue;
 
             if (!_angleCache.TryGetValue(controller.Slot, out var angle))
